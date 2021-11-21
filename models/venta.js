@@ -1,10 +1,10 @@
 
 const { Schema, model } = require('mongoose');
 
-const UsuarioSchema = new Schema({
-    nombre: {
+const VentaSchema = new Schema({
+    numero_factura: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        required: [true, 'El numero de la factura es bligatorio es obligatorio']
     },
     correo: {
         type: String,
