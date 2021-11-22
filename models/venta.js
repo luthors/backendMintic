@@ -1,43 +1,43 @@
 
 const { Schema, model } = require('mongoose');
 
-const VentaSchema = new Schema({
-    numero_factura: {
+const ventaSchema = new Schema({
+  
+    numero: {
         type: String,
-        required: [true, 'El numero de la factura es bligatorio es obligatorio']
+        // required: [true, 'El numero de la factura es obligatorio']
     },
-    correo: {
+    cliente: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
-        unique: true
+        required: [true, 'El nombre del cliente es obligatorio'],
+        unique: false
     },
-    password: {
+    fecha: {
         type: String,
-        required: [true, 'La contraseña es obligatoria'],
+        required: [true, 'La fecha es obligatoria'],
     },
-    img: {
+    total: {
         type: String,
+        required: [true, 'El total es obligatorio'],
     },
-    rol: {
-        type: String,
+    producto: {
+        type: Schema.Types.ObjectId,
+        ref: 'Producto',
         required: true,
-        emun: ['ADMIN_ROLE', 'USER_ROLE']
     },
+
     estado: {
         type: Boolean,
         default: true
     },
-    google: {
-        type: Boolean,
-        default: false
-    },
+    
 });
 
 
-
-UsuarioSchema.methods.toJSON = function() {
-    const { __v, password, ...usuario  } = this.toObject();
-    return usuario;
+ventaSchema.methods.toJSON = function() {
+    const { __v, estado, ...venta  } = this.toObject();
+    return venta;
 }
 
-module.exports = model( 'Usuario', UsuarioSchema );
+
+module.exports = model( 'Venta', ventaSchema );
