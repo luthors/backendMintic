@@ -36,6 +36,7 @@ const crearVenta = async(req, res = response ) => {
 
 
     const { numero, estado, usuario, ...body } = req.body;
+    console.log("linea 39 controlles: ",numero)
     const ventaDB = await Venta.findOne({ numero });
     console.log("eee:",req.body)
 
@@ -52,13 +53,15 @@ const crearVenta = async(req, res = response ) => {
 
         ...body,
         numero:req.body.numero
+
     }
 
     const venta = new Venta( data );
-
+    console.log("venta",  venta)
     // Guardar DB
 
     await venta.save();
+
 
     res.status(201).json(venta);
 

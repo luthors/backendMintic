@@ -33,14 +33,11 @@ router.get('/:id',[
 router.post('/', [ 
     validarJWT,
     // check('numero','El numero es obligatorio').not().isEmpty(),
-    check('cliente','El numero es obligatorio').not().isEmpty(),
+    check('cliente','El nombre cliente es obligatorio').not().isEmpty(),
     check('fecha','La fecha es obligatorio').not().isEmpty(),
     check('total','El total es obligatorio').not().isEmpty(),
-    // check('producto','No es un mongo ID valido').isMongoId(),
-    check('numero').custom( existeVentaPorId ),
-    
-    
-
+    check('producto','No es un mongo ID valido').isMongoId(),
+    // check('numero').custom( existeVentaPorId ),
     validarCampos
 ], crearVenta );
 

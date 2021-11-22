@@ -56,7 +56,7 @@ const existeVentaPorId = async( id ) => {
     // Verificar si venta existe
     const existeVenta = await Venta.findById(id);
     if ( !existeVenta ) {
-        throw new Error(`El id no existe ${ id }`);
+        throw new Error(`El id venta no existe ${ id }`);
     }
 }
 

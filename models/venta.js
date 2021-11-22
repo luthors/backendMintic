@@ -5,7 +5,8 @@ const ventaSchema = new Schema({
   
     numero: {
         type: String,
-        // required: [true, 'El numero de la factura es obligatorio']
+        required: [true, 'El numero de la factura es obligatorio'],
+        unique:true
     },
     cliente: {
         type: String,
@@ -17,7 +18,8 @@ const ventaSchema = new Schema({
         required: [true, 'La fecha es obligatoria'],
     },
     total: {
-        type: String,
+        type: Number,
+        defaulr:0,
         required: [true, 'El total es obligatorio'],
     },
     producto: {
